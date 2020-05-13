@@ -1,10 +1,9 @@
 pipeline{
-    agent{ docker { image 'node:6.3' } }
+    agent{ any }
     stages{
         stage("test"){
             steps{
                 sh 'echo hello world'
-                sh 'npm --version'
             }
         }
     }
