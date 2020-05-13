@@ -1,0 +1,4 @@
+libraries {
+    npm
+    merge = true
+}
