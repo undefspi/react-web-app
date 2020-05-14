@@ -11,7 +11,7 @@ jobs:
           }
           configure { 
                def mbProject = it
-               def props = aNode / 'properties'
+               def props = mbProject / 'properties'
                def bz = 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty'
           }
       }
