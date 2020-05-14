@@ -9,9 +9,7 @@ jobs:
                   remote('https://github.com/undefspi/react-web-app.git')
               }
           }
-          properties {
-              configure { node ->
-                  node / healthMetrics / 'com.cloudbees.hudson.plugins.folder.health.WorstChildHealthMetric'
-              }
+          configure { node ->
+               node / healthMetrics / 'com.cloudbees.hudson.plugins.folder.health.WorstChildHealthMetric'
           }
       }
