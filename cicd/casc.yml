@@ -2,24 +2,29 @@ jenkins:
   systemMessage: "Controlled by Configuration as Code"
 jobs:
   - script: >
-      multibranchPipelineJob('react-jte') {
-          branchSources {
-              git {
-                  id = 'configuration-as-code'
-                  remote('https://github.com/undefspi/react-web-app.git')
-              }
-          }
-          configure { 
-               def mbProject = it
-               def props = mbProject / 'properties'
-               def bz = props / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty(plugin: templating-engine@1.7.1)' / 'tier' / 'configurationProvider'
-               bz << scm(class: 'hudson.plugins.git.GitSCM', plugin: 'git@3.9.3' ) {
-                   configVersion '2'
-                   userRemoteConfigs {
-                       'hudson.plugins.git.UserRemoteConfig' {
-                           url 'https://github.com/undefspi/react-web-app.git'
-                       }
-                   }
-               }
-          }
-      }
+        multibranchPipelineJob('react-jte') {
+            branchSources {
+                git {
+                    id = 'configuration-as-code'
+                    remote('https://github.com/undefspi/react-web-app.git')
+                }
+            }
+            configure { 
+                def mbProject = it
+                def props = mbProject / 'properties'
+                props << 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty(plugin: 'templating-engine@1.7.1')' {
+                    tier {
+                        configurationProvider(class: 'org.boozallen.plugins.jte.config.ScmPipelineConfigurationProvider'){
+                            scm(class: 'hudson.plugins.git.GitSCM', plugin: 'git@3.9.3' ) {
+                                configVersion '2'
+                                userRemoteConfigs {
+                                    'hudson.plugins.git.UserRemoteConfig' {
+                                        url 'https://github.com/undefspi/react-web-app.git'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
