@@ -37,7 +37,7 @@ jobs:
             factory {
                 templateBranchProjectFactory {
                     filterBranches(false)
-                    scriptPath('JenkinsFile')
+                    scriptPath('Jenkinsfile')
                 }
             }
         }
