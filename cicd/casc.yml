@@ -11,6 +11,7 @@ jobs:
           }
           configure { 
                def mbProject = it
-               def cp = mbProject / 'properties' / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / tier / configurationProvider
+               def props = aNode / 'properties'
+               def bz = 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty'
           }
       }
