@@ -2,7 +2,7 @@ jenkins:
   systemMessage: "Controlled by Configuration as Code"
 jobs:
   - script: >
-      multibranchPipelineJob('configuration-as-code') {
+      multibranchPipelineJob('react-jte') {
           branchSources {
               git {
                   id = 'configuration-as-code'
@@ -10,8 +10,8 @@ jobs:
               }
           }
           configure { node ->
-            node / sources / data / 'jenkins.branch.BranchSource' / source / traits {
-                'jenkins.plugins.git.traits.BranchDiscoveryTrait'()
+            node / properties / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / tier / configurationProvider / scm / userRemoteConfigs / hudson.plugins.git.UserRemoteConfig / url { 
+                'https://github.com/undefspi/react-web-app.git' 
             }
           }
       }
