@@ -10,8 +10,6 @@ jobs:
               }
           }
           configure { node ->
-            node / properties / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / tier / configurationProvider / scm / userRemoteConfigs / 'hudson.plugins.git.UserRemoteConfig' / url { 
-                'https://github.com/undefspi/react-web-app.git' 
-            }
+            node / properties 
           }
       }
