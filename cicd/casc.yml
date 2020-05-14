@@ -11,6 +11,7 @@ jobs:
           }
           configure { 
                def aNode = it 
-               def anotherNode = aNode / 'properties'
+               def anotherNode = aNode / 'description'
+               anotherNode.setValue('This is react JTE')
           }
       }
