@@ -9,4 +9,8 @@ jobs:
                   remote('https://github.com/undefspi/react-web-app.git')
               }
           }
-      }
+          configure { node ->
+                node / sources / data / 'jenkins.branch.BranchSource' / source / traits {
+                'jenkins.plugins.git.traits.BranchDiscoveryTrait'()
+          }
+        }
