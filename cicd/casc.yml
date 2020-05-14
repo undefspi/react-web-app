@@ -10,8 +10,14 @@ jobs:
               }
           }
           configure { 
-               def aNode = it 
-               def anotherNode = aNode / 'description'
-               anotherNode.setValue('This is react JTE')
+               def mbProject = it
+               mbProject / 'properties' / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / tier / configurationProvider << scm {
+                  configVersion '2'
+                  userRemoteConfigs {
+                     hudson.plugins.git.UserRemoteConfig {
+                        url 'https://github.com/undefspi/react-web-app.git'
+                     }
+                  }
+               }
           }
       }
