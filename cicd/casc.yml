@@ -10,6 +10,8 @@ jobs:
               }
           }
           configure { node ->
-            node / properties 
+              node / sources / data / 'jenkins.branch.BranchSource' / source / traits {
+              'jenkins.plugins.git.traits.BranchDiscoveryTrait'()
+            }
           }
       }
