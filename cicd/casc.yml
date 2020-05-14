@@ -13,6 +13,6 @@ jobs:
                def mbProject = it
                def props = mbProject / 'properties'
                def bz = props / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier' / 'configurationProvider'
-               bz << scm(class: 'hudson.plugins.git.GitSCM' plugin="git@3.9.3" )
+               bz << scm(class: 'hudson.plugins.git.GitSCM' plugin: 'git@3.9.3' )
           }
       }
