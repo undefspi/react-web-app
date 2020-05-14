@@ -22,6 +22,14 @@ jobs:
                                     url 'https://github.com/undefspi/react-web-app.git'
                                 }
                             }
+                            branches {
+                                'hudson.plugins.git.BranchSpec' {
+                                    name '*/master'
+                                }
+                            }
+                            doGenerateSubmoduleConfiguration 'false'
+                            submoduleCfg(class: 'list')
+                            extensions
                         }
                     }
                 }
