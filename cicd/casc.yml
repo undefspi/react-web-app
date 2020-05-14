@@ -9,7 +9,9 @@ jobs:
                   remote('https://github.com/undefspi/react-web-app.git')
               }
           }
-          configure { node ->
-              node / sources / data / 'jenkins.branch.BranchSource' / source
+          properties {
+              configure { node ->
+                  node / healthMetrics / 'com.cloudbees.hudson.plugins.folder.health.WorstChildHealthMetric'
+              }
           }
       }
