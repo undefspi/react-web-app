@@ -15,6 +15,11 @@ jobs:
                def bz = props / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier' / 'configurationProvider'
                bz << scm(class: 'hudson.plugins.git.GitSCM', plugin: 'git@3.9.3' ) {
                    configVersion '2'
+                   userRemoteConfigs {
+                       'hudson.plugins.git.UserRemoteConfig' {
+                           url 'https://github.com/undefspi/react-web-app.git'
+                       }
+                   }
                }
           }
       }
