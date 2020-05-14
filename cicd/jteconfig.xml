@@ -1,4 +1,4 @@
-<?xml version='2.1' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@2.20">
   <actions/>
   <description></description>
@@ -23,11 +23,30 @@
             <extensions/>
           </scm>
         </configurationProvider>
+        <libraries>
+          <org.boozallen.plugins.jte.config.libraries.LibraryConfiguration>
+            <libraryProvider class="org.boozallen.plugins.jte.config.libraries.ScmLibraryProvider">
+              <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.3">
+                <configVersion>2</configVersion>
+                <userRemoteConfigs>
+                  <hudson.plugins.git.UserRemoteConfig>
+                    <url>https://github.com/undefspi/react-web-app.git</url>
+                  </hudson.plugins.git.UserRemoteConfig>
+                </userRemoteConfigs>
+                <branches>
+                  <hudson.plugins.git.BranchSpec>
+                    <name>*/master</name>
+                  </hudson.plugins.git.BranchSpec>
+                </branches>
+                <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+                <submoduleCfg class="list"/>
+                <extensions/>
+              </scm>
+            </libraryProvider>
+          </org.boozallen.plugins.jte.config.libraries.LibraryConfiguration>
+        </libraries>
       </tier>
     </org.boozallen.plugins.jte.config.TemplateConfigFolderProperty>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesFolderProperty plugin="kubernetes@1.18.2">
-      <permittedClouds/>
-    </org.csanchez.jenkins.plugins.kubernetes.KubernetesFolderProperty>
     <org.jenkinsci.plugins.pipeline.modeldefinition.config.FolderConfig plugin="pipeline-model-definition@1.3.7">
       <dockerLabel></dockerLabel>
       <registry plugin="docker-commons@1.14"/>
@@ -37,3 +56,8 @@
     <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
   </folderViews>
   <healthMetrics>
+    <com.cloudbees.hudson.plugins.folder.health.WorstChildHealthMetric plugin="cloudbees-folder@6.9">
+      <nonRecursive>false</nonRecursive>
+    </com.cloudbees.hudson.plugins.folder.health.WorstChildHealthMetric>
+  </healthMetrics>
+  <icon class="jenkins.branch.MetadataActionFolderIcon" plugin="branch-api@2.0.20">
