@@ -12,6 +12,6 @@ jobs:
           configure { 
                def mbProject = it
                def props = mbProject / 'properties'
-               def bz = 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier'
+               def bz = mbProject / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier'
           }
       }
