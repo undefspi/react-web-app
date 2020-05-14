@@ -12,7 +12,6 @@ jobs:
           configure { 
                def mbProject = it
                def props = mbProject / 'properties'
-               def bz = mbProject / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier'
-               bz / configurationProvider(class: 'hudson.plugins.git.GitSCM' plugin='git@3.9.3'
+               def bz = mbProject / 'org.boozallen.plugins.jte.config.TemplateConfigFolderProperty' / 'tier' / 'configurationProvider'
           }
       }
